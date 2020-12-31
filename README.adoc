@@ -1,0 +1,5 @@
+
+
+= Get started with Miro Web SDK
+
+Miro is a fast, free, infinite, digital whiteboard that you use to ideate, strategize, organize, and collaborate with your distributed team in the cloud at any time.
