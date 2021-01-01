@@ -31,7 +31,7 @@ In order to create a custom Miro whiteboard, you must already:
 
 * https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-github-pages-site[A GitHub pages repository] to serve your Web SDK plugin. For example: https://billy-the-fish.github.io/.
 +
-If you wish to test on your local machine, install https://github.com/http-party/http-server[http-server] to publish your page and create an https://ngrok.com/[ngrok] account to tunnel your content to a public URL.
+If you wish to test from your local machine and not a public server, install https://github.com/http-party/http-server[http-server] to publish your page and create an https://ngrok.com/[ngrok] account to tunnel your content to a public URL.
 
 
 == Create a custom date button
@@ -41,6 +41,44 @@ In order to create a custom whiteboard:
 . *Create a Miro developer account*
 +
 In your browser, navigate to https://miro.com/signup/ and follow the setup wizard.
+
+. *Create and test your WebApp code*
++
+You use the Developer Console in your browser to test your code. To do this:
+
+.. Open a board from Dev Console:
++
+image::images/open_a_board.png[]
+
+.. Write your Web App code:
++
+This code calculates the center point of the current https://developers.miro.com/docs/board-manipulation[miro.board.viewport] instance, and writes today's date to a https://developers.miro.com/docs/interface-istickerwidget[sticker].
++
+[source,javascript]
+----
+const viewport = await miro.board.viewport.get()
+
+// Calculate the center of the visible view
+const centeredX = viewport.x + viewport.width / 2
+const centeredY = viewport.y + viewport.height / 2
+
+// Retrieve today's date.
+var today = new Date()
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+today = mm + '/' + dd + '/' + yyyy;
+
+// Create a sticker in the center of the current view
+miro.board.widgets.create({type: "sticker", text: today, x:centeredX, y:centeredY})
+----
+
+.. Open the dev console for your board and paste your code into it:
++
+Press enter in the Developer Console and you see your custom widget.
++
+image::images/add_your_code.png[]
+
 
 . *Create a Miro app*
 +
@@ -67,6 +105,9 @@ image::images/web_plugin.png[]
 In Miro, OAuth https://developers.miro.com/docs/sdk#scopes[scopes] govern the permissions and capabilities of your Web App. When you enable a scope, each user has the associated permissions.
 +
 image::images/set_oauth_scopes.png[]
++
+Now you are sure that your code works, add it to the boards in your dev
+Now you are sure that your code works, add it to the boards in your developer account as a Web App.
 
 .. Install your Web App.
 

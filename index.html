@@ -10,23 +10,21 @@
             title: 'Miro writing test',
             svgIcon: '<rect x="0" y="0" width="24" height="24" fill="currentColor" />',
             onClick: () => {
+                const viewport = await miro.board.viewport.get()
 
-              // Retrieve an object that represents the area of the whiteboard currently visible
-              const viewport = await miro.board.viewport.get()
+                // Calculate the center of the visible view
+                const centeredX = viewport.x + viewport.width / 2
+                const centeredY = viewport.y + viewport.height / 2
 
-              // Calculate the center of the visible view
-              const centeredX = viewport.x + viewport.width / 2
-              const centeredY = viewport.y + viewport.height / 2
+                // Retrieve today's date.
+                var today = new Date()
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+                today = mm + '/' + dd + '/' + yyyy;
 
-              // Retrieve today's date.
-              var today = new Date()
-              var dd = String(today.getDate()).padStart(2, '0');
-              var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-              var yyyy = today.getFullYear();
-              today = mm + '/' + dd + '/' + yyyy;
-
-              // Create a sticker in the center of the current view
-              miro.board.widgets.create({type: "sticker", text: today, x:centeredX, y:centeredY})
+                // Create a sticker in the center of the current view
+                miro.board.widgets.create({type: "sticker", text: today, x:centeredX, y:centeredY})
             }
           }
         }
