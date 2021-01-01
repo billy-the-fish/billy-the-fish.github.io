@@ -1,5 +1,83 @@
 
 
+
 = Get started with Miro Web SDK
 
 Miro is a fast, free, infinite, digital whiteboard that you use to ideate, strategize, organize, and collaborate with your distributed team in the cloud at any time.
+
+You use Web SDK to create custom features in you Miro whiteboards that suite the way of working for your team. For example, you can create custom:
+
+* Visual asset management and ensure your whiteboards have branded icons and images
+
+* Syncronizations between Miro items with other tools using custom fields and interface
+
+* Collaboration plugins for remote meetings, workshops and retrospectives
+
+https://developers.miro.com/docs/web-plugins-features[Web-plugins features] shows the features you add to your custom whiteboards.
+
+This get started shows you how to rapidly create a whiteboard customization for your team.
+
+== Prerequisites
+
+In order to create a custom Miro whiteboard, you must already:
+
+
+* Use a browser with a developer console such as:
+
+** Google Chrome
+** FireFox
+
+* Have a basic understanding of JavaScript and Web applications.
+
+* https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-github-pages-site[A GitHub pages repository] to serve your Web SDK plugin. For example: https://billy-the-fish.github.io/.
++
+If you wish to test on your local machine, install https://github.com/http-party/http-server[http-server] to publish your page and create an https://ngrok.com/[ngrok] account to tunnel your content to a public URL.
+
+
+== Create a custom date button
+
+In order to create a custom whiteboard:
+
+. *Create a Miro developer account*
++
+In your browser, navigate to https://miro.com/signup/ and follow the setup wizard.
+
+. *Create a Miro app*
++
+A Miro App is the collection of code, resources and rights needed to publish a whiteboard to your audience. This app authenticates the URL you publish your App to.
++
+To create an App:
+
+.. In your browser, navigate to https://miro.com/app/settings/user-profile/apps.
+
+.. Agree to the _Terms and Conditions_ and click _Create new app_.
++
+image::images/create_new_app.png[]
+
+.. In _Create App_, fill in the app information and click _Create app_.
++
+image::images/create_app_dialog.png[]
+
+.. Set _Web-plugin_ to the public URL for your Web App.
++
+image::images/web_plugin.png[]
+
+.. Choose the _OAuth scopes_ for your Web App.
++
+In Miro, OAuth https://developers.miro.com/docs/sdk#scopes[scopes] govern the permissions and capabilities of your Web App. When you enable a scope, each user has the associated permissions.
++
+image::images/set_oauth_scopes.png[]
+
+.. Install your Web App.
+
+... Click _Install app and get OAuth token_.
+
+... In _Install app to get OAuth token_, choose team to install your app and click _install_.
+
+... Save the token locally, then click _Close_.
+
+
+
+
+== Reference
+
