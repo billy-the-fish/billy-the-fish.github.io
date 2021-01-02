@@ -87,11 +87,8 @@ Press enter in the developer console and you see your custom sticker.
 +
 image::images/add_your_code.png[]
 
-////
 
-If you just want to show the code, I would stop here. However, as callback creation is not easy to understand from the current docs, I made this into a full example.
 
-////
 . *Publish your {WPI} to the Internet*
 +
 Miro retrieves your {WPI} code from an HTML page that is securely accessible from the Internet. For example, https://billy-the-fish.github.io/index.html.  To do this:
