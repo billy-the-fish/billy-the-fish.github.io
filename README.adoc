@@ -63,6 +63,7 @@ This code calculates the center point of the current https://developers.miro.com
 +
 [source,javascript]
 ----
+// Retrieve the whiteboard currently visible in the browser.
 const viewport = miro.board.viewport.get()
 
 // Calculate the center of the visible view
