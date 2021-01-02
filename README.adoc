@@ -5,44 +5,45 @@
 :DT: Developer Team
 :MDA: Miro developer account
 :MAPP: Miro App
+:BOARD: whiteboard
 
-= Get started with Miro Web SDK
+= Get started with Miro {WPI}s
 
-Miro is a fast, free, infinite, digital whiteboard that you use to ideate, strategize, organize, and collaborate with your distributed team in the cloud at any time.
+Miro is a fast, free, infinite, and digital {BOARD} that you use to ideate, strategize, organize, and collaborate with your distributed team in the cloud at any time.
 
-You use {WSDK} to create custom features in you Miro whiteboards that suite the way of working for your team. For example, you can create custom:
+You use {WSDK} to create custom features in your Miro whiteboards that suit the way of working for your team. For example, you can create custom:
 
-* Visual asset management and ensure your whiteboards have branded icons and images.
+* Visual asset management features and ensure that your whiteboards include branded icons and images
 
-* Syncronizations between Miro items with other tools using custom fields and interface.
+* Syncronizations between Miro items with other tools using custom fields and interfaces
 
-* Collaboration plugins for remote meetings, workshops and retrospectives.
+* Collaboration plugins for remote meetings, workshops and retrospectives
 
-https://developers.miro.com/docs/web-plugins-features[{WPI} features] suggests the features you can add to your custom whiteboards.
+https://developers.miro.com/docs/web-plugins-features[{WPI} features] suggests the benefits you can add to your custom whiteboards.
 
-This get started shows you how to rapidly create a custom {WPI} for whiteboards used by your team.
+This section shows you how to rapidly create a custom {WPI} for the whiteboards that could benefit your team.
 
 :toc:
 
 == Prerequisites
 
-In order to create a custom Miro whiteboard, you must already:
+In order to create a custom Miro {BOARD}, you must already:
 
-* Use a browser with a developer donsole such as:
+* Use a browser with a developer console such as:
 
 ** Google Chrome
 ** FireFox
 
 * Have a basic understanding of JavaScript and Web applications.
 
-* https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-github-pages-site[A GitHub pages repository] to serve your Web SDK plugin. For example: https://billy-the-fish.github.io/.
+* https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-github-pages-site[A GitHub pages repository] to serve your {WPI}. For example: https://billy-the-fish.github.io/.
 +
 If you wish to test from your local machine and not a public server, install https://github.com/http-party/http-server[http-server] to publish your page and create an https://ngrok.com/[ngrok] account to tunnel your content to a public URL.
 
 
 == Create a custom date button
 
-In order to create a custom {WPI} for a Miro whiteboard:
+In order to create a custom {WPI} for a Miro {BOARD}:
 
 . *Create a {MDA}*
 +
@@ -52,7 +53,7 @@ In your browser, navigate to https://miro.com/signup/ and follow the setup wizar
 +
 You use the Developer Console in your browser to test your code. To do this:
 
-.. Open a board from your https://miro.com/app/dashboard/[{MDA}]:
+.. Open a {BOARD} from your https://miro.com/app/dashboard/[{MDA}]:
 +
 image::images/open_a_board.png[]
 
@@ -79,7 +80,7 @@ today = mm + '/' + dd + '/' + yyyy;
 miro.board.widgets.create({type: "sticker", text: today, x:centeredX, y:centeredY})
 ----
 
-.. Open the developer console for your board and paste your code into it:
+.. Open the developer console for your {BOARD} and paste your code into it:
 +
 Press enter in the developer console and you see your custom sticker.
 +
@@ -92,7 +93,7 @@ If you just want to show the code, I would stop here. However, as callback creat
 ////
 . *Publish your {WPI} to the Internet*
 +
-Miro retrieves your Web App code from an HTML page that is securely accessible from the Internet. For example, https://billy-the-fish.github.io/index.html.  To do this:
+Miro retrieves your {WPI} code from an HTML page that is securely accessible from the Internet. For example, https://billy-the-fish.github.io/index.html.  To do this:
 
 .. Create the _index.html_ page that holds your code as a script. For example:
 +
@@ -140,7 +141,7 @@ If you are using http-server and ngrok, start the processes in the directory hol
 
 . *Create a {MAPP}*
 +
-A {MAPP} is the collection of code, resources and rights needed to publish a whiteboard to your audience. This app authenticates the URL you publish your App to.
+A {MAPP} is the collection of code, resources and rights needed to publish a {BOARD} to your audience. This app authenticates the URL you publish your App to.
 +
 To create an {MAPP}:
 
@@ -154,40 +155,40 @@ image::images/create_new_app.png[]
 +
 image::images/create_app_dialog.png[]
 
-.. Set _Web-plugin_ to the public URL for your Web App.
+.. Set _Web-plugin_ to the public URL for your {WPI}.
 +
 image::images/web_plugin.png[]
 +
 If you are using ngrok, this is the URL you noted earlier.
 
-.. Choose the _OAuth scopes_ for your Web App and click _Install app and get OAUTH Token_.
+.. Choose the _OAuth scopes_ for your {WPI} and click _Install app and get OAUTH Token_.
 +
-In Miro, OAuth https://developers.miro.com/docs/sdk#scopes[scopes] govern the permissions and capabilities of your Web App. When you enable a scope, each user has the associated permissions.
+In Miro, OAuth https://developers.miro.com/docs/sdk#scopes[scopes] govern the permissions and capabilities of your {WPI}. When you enable a scope, each user has the associated permissions.
 +
 image::images/set_oauth_scopes.png[]
 +
-You {WPI} is now added to all the whiteboards in your {MDA}.
+Your {WPI} is now added to all the whiteboards in your {MDA}.
 
 
-.. View your Web App
+.. View your {WPI}
 +
-Refresh one of the boards from your dev area. Click the button added to the bottom bar and see your custom widget.
+Refresh one of the boards in your {MDA}. Click the button that your {WPI} adds to the bottom bar and see your custom widget appear in the {BOARD}.
 +
 image::images/plugin_in_whiteboard.png[]
 
 
 == Reference
 
-The objects you used in this section are:
+The Miro objects you used in this section are:
 
 |===
 |Object | Description
 
 | https://developers.miro.com/docs/board-manipulation[miro.board.viewport]
-| The current Miro whiteboard visible in your browser.
+| The Miro {BOARD} currently visible in your browser.
 
 |https://developers.miro.com/docs/interface-istickerwidget[sticker]
-| A specialized https://developers.miro.com/docs/interface-iwidget[iWidget] that creates a yellow postit on a whiteboard.
+| A specialized https://developers.miro.com/docs/interface-iwidget[iWidget] that creates a yellow postit on a {BOARD}.
 
 |===
 
