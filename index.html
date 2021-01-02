@@ -10,7 +10,7 @@
             title: 'Miro writing test',
             svgIcon: '<rect x="0" y="0" width="24" height="24" fill="currentColor" />',
             onClick: () => {
-                const viewport = await miro.board.viewport.get()
+                const viewport = miro.board.viewport.get()
 
                 // Calculate the center of the visible view
                 const centeredX = viewport.x + viewport.width / 2
@@ -23,7 +23,7 @@
                 var yyyy = today.getFullYear();
                 today = mm + '/' + dd + '/' + yyyy;
 
-                // Create a sticker in the center of the current view
+                // Create a sticker in the center of the current view/
                 miro.board.widgets.create({type: "sticker", text: today, x:centeredX, y:centeredY})
             }
           }
@@ -33,4 +33,3 @@
     </script>
 </head>
 </html>
-
