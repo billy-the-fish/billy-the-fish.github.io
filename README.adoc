@@ -3,7 +3,7 @@
 :WSDK: Web SDK
 :WPI: Web-plugin
 :DT: Developer Team
-:MDA: Miro developer team
+:MDA: Miro Dev team
 :MAPP: Miro App
 :BOARD: whiteboard
 
@@ -152,7 +152,7 @@ To create an {MAPP}:
 +
 image::images/create_new_app.png[]
 
-.. In _Create App_, fill in the app information and click _Create app_.
+.. In _Create new app_, fill in the app information and click _Create app_.
 +
 image::images/create_app_dialog.png[]
 
