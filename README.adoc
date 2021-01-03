@@ -3,7 +3,7 @@
 :WSDK: Web SDK
 :WPI: Web-plugin
 :DT: Developer Team
-:MDA: Miro developer account
+:MDA: Miro developer team
 :MAPP: Miro App
 :BOARD: whiteboard
 
@@ -93,7 +93,7 @@ image::images/add_your_code.png[]
 +
 Miro retrieves your {WPI} code from an HTML page that is securely accessible from the Internet. For example, https://billy-the-fish.github.io/index.html.  To do this:
 
-.. Create the _index.html_ page that holds your code as a script. For example:
+.. Push the _index.html_ page that holds your code to root directory of your publicly available GitHub repository. For example:
 +
 [source, html]
 ----
@@ -139,7 +139,7 @@ If you are using http-server and ngrok, start the processes in the directory hol
 
 . *Create a {MAPP}*
 +
-A {MAPP} is the collection of code, resources and rights needed to publish a {BOARD} to your audience. This app authenticates the URL you publish your App to.
+A {MAPP} is the collection of code, resources and rights you need to securely publish a {WPI} or enable REST calls to the {BOARD}s available to your audience. This app authenticates the URL you publish your App to.
 +
 To create an {MAPP}:
 
