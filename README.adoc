@@ -41,21 +41,17 @@ In order to create a custom Miro {BOARD}, you must already:
 If you wish to test from your local machine and not a public server, install https://github.com/http-party/http-server[http-server] to publish your page and create an https://ngrok.com/[ngrok] account to tunnel your content to a public URL.
 
 
-== Create a custom date button
+== Create a custom date sticker
 
-In order to create a custom {WPI} for a Miro {BOARD}:
+In order to create a custom {WPI} for a Miro {BOARD} that shows the current date at the touch of a button:
 
-. *Create a {MDA}*
+. *Create a {MDA}*:
 +
 In your browser, navigate to https://miro.com/signup/ and follow the setup wizard.
 
-. *Create and test your {WPI} code*
+. *Create and test  your {WPI} code*:
 +
-You use the Developer Console in your browser to test your code. To do this:
-
-.. Open a {BOARD} from your https://miro.com/app/dashboard/[{MDA}]:
-+
-image::images/open_a_board.png[]
+You use the Developer Console in your browser to test your {WPI}. To do this:
 
 .. Write your {WPI} code:
 +
@@ -81,15 +77,21 @@ today = mm + '/' + dd + '/' + yyyy;
 miro.board.widgets.create({type: "sticker", text: today, x:centeredX, y:centeredY})
 ----
 
-.. Open the developer console for your {BOARD} and paste your code into it:
+.. Open a {BOARD} from your https://miro.com/app/dashboard/[{MDA}]:
 +
-Press enter in the developer console and you see your custom sticker.
+image::images/open_a_board.png[]
+
+.. Test your {WPI} code:
++
+Open the developer console for your {BOARD}, paste your code into it and press Enter.
 +
 image::images/add_your_code.png[]
++
+You see your custom sticker.
 
 
 
-. *Publish your {WPI} to the Internet*
+. *Publish your {WPI} to the Internet*:
 +
 Miro retrieves your {WPI} code from an HTML page that is securely accessible from the Internet. For example, https://billy-the-fish.github.io/index.html.  To do this:
 
@@ -107,6 +109,7 @@ Miro retrieves your {WPI} code from an HTML page that is securely accessible fro
         extensionPoints: {
           bottomBar: {
             title: 'Miro writing test',
+            // Add a rectangular button to the bottom bar in your devteam whiteboards
             svgIcon: '<rect x="0" y="0" width="24" height="24" fill="currentColor" />',
             onClick: () => {
                 const viewport = await miro.board.viewport.get()
@@ -118,7 +121,7 @@ Miro retrieves your {WPI} code from an HTML page that is securely accessible fro
                 // Retrieve today's date.
                 var today = new Date()
                 var dd = String(today.getDate()).padStart(2, '0');
-                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var mm = String(today.getMonth() + 1).padStart(2, '0');
                 var yyyy = today.getFullYear();
                 today = mm + '/' + dd + '/' + yyyy;
 
@@ -137,9 +140,9 @@ Miro retrieves your {WPI} code from an HTML page that is securely accessible fro
 If you are using http-server and ngrok, start the processes in the directory holding _index.html_ and note the HTTPS URL delivered by ngrok. For example, https://b26dd530f70b.ngrok.io.
 
 
-. *Create a {MAPP}*
+. *Create a {MAPP}*:
 +
-A {MAPP} is the collection of code, resources and rights you need to securely publish a {WPI} or enable REST calls to the {BOARD}s available to your audience. This app authenticates the URL you publish your App to.
+A {MAPP} is the collection of code, resources and rights you need to securely publish a {WPI} or enable REST calls to the {BOARD}s available to your audience. A {MAPP} also authenticates the URL you publish your App to.
 +
 To create an {MAPP}:
 
@@ -161,14 +164,14 @@ If you are using ngrok, this is the URL you noted earlier.
 
 .. Choose the _OAuth scopes_ for your {WPI} and click _Install app and get OAUTH Token_.
 +
-In Miro, OAuth https://developers.miro.com/docs/sdk#scopes[scopes] govern the permissions and capabilities of your {WPI}. When you enable a scope, each user has the associated permissions.
+In Miro, OAuth https://developers.miro.com/docs/sdk#scopes[scopes] govern the permissions and capabilities of your {WPI}. When you enable a scope, each user has the associated permissions. For this {WPI}, members of your {MDA} need to read and write to a {BOARD}.
 +
 image::images/set_oauth_scopes.png[]
 +
 Your {WPI} is now added to all the whiteboards in your {MDA}.
 
 
-.. View your {WPI}
+. *View your {WPI}*:
 +
 Refresh one of the boards in your {MDA}. Click the button that your {WPI} adds to the bottom bar and see your custom widget appear in the {BOARD}.
 +
@@ -186,7 +189,7 @@ The Miro objects you used in this section are:
 | The Miro {BOARD} currently visible in your browser.
 
 |https://developers.miro.com/docs/interface-istickerwidget[sticker]
-| A specialized https://developers.miro.com/docs/interface-iwidget[iWidget] that creates a yellow postit on a {BOARD}.
+| A specialized https://developers.miro.com/docs/interface-iwidget[iWidget] that creates a yellow square on a {BOARD}.
 
 |===
 
